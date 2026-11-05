@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#102b35">
+<meta name="description" content="A six-month self-study course for spoken Bahraini Arabic.">
+<title>Bahraini Arabic Coach</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--ink:#18343d;--muted:#62777d;--bg:#f3f7f5;--card:#fff;--teal:#176b62;--teal2:#dff1eb;--gold:#e9b65d;--line:#e2eae6;--shadow:0 8px 28px rgba(19,55,59,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:88px}
+button{font:inherit;cursor:pointer}header{background:linear-gradient(135deg,#102b35,#176b62);color:#fff;padding:24px 20px 28px;border-radius:0 0 26px 26px}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;letter-spacing:.2px}.date{font-size:12px;color:#c9e1db}
+h1{font-size:28px;line-height:1.12;margin:22px 0 8px;max-width:340px}header p{color:#d7e8e3;margin:0;max-width:340px;font-size:14px}
+.wrap{max-width:760px;margin:auto;padding:0 16px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:-18px}
+.stat{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:16px;padding:13px 10px;text-align:center}.stat strong{display:block;font-size:22px;color:var(--teal)}.stat span{font-size:11px;color:var(--muted)}
+main{padding-top:20px}.section-head{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 12px}.section-head h2{font-size:18px;margin:0}.sub{font-size:12px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 3px 14px rgba(19,55,59,.035)}
+.today{border:1.5px solid #b8d9ce}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--teal);font-weight:800}.lesson-title{font-size:21px;font-weight:800;margin:4px 0}.lesson-meta{font-size:13px;color:var(--muted)}
+.progress-track{height:8px;background:#e7efeb;border-radius:99px;overflow:hidden;margin:12px 0 6px}.progress-fill{height:100%;width:0;background:var(--teal);border-radius:99px;transition:width .2s}
+.btn{border:0;border-radius:12px;padding:11px 15px;font-weight:700;background:var(--teal);color:white}.btn.secondary{background:var(--teal2);color:var(--teal)}.btn.ghost{background:#f0f4f2;color:var(--ink)}.btn.small{padding:8px 11px;font-size:13px}.btn.full{width:100%}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{background:#f8fbf9;border:1px solid var(--line);padding:13px;border-radius:14px}.tile b{display:block;font-size:14px}.tile small{color:var(--muted)}
+.tabs{position:fixed;z-index:5;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 5px calc(8px + env(safe-area-inset-bottom))}
+.tab{background:none;border:0;color:#718389;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:62px}.tab span{font-size:20px}.tab.active{color:var(--teal);font-weight:800}
+.view{display:none}.view.active{display:block}
+.vocab{display:grid;grid-template-columns:1fr auto;gap:6px;padding:10px 0;border-bottom:1px solid var(--line)}.vocab:last-child{border:0}.arabic{font-size:20px;font-weight:700;direction:rtl}.pron{font-size:12px;color:var(--muted)}.meaning{font-size:13px;text-align:right;align-self:center}
+.pill{display:inline-block;padding:4px 9px;background:var(--teal2);color:var(--teal);border-radius:99px;font-size:11px;font-weight:800}
+details{border-top:1px solid var(--line);padding:12px 0}summary{font-weight:700;cursor:pointer}.dialogue-line{padding:10px 0;border-bottom:1px solid var(--line)}.dialogue-line:last-child{border:0}.speaker{font-size:11px;color:var(--teal);font-weight:800;text-transform:uppercase}.arline{font-size:20px;direction:rtl;font-weight:700}.trans{font-size:12px;color:var(--muted)}
+.dayrow{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.daynum{width:38px;height:38px;border-radius:12px;background:#edf4f0;display:grid;place-items:center;font-weight:800;color:var(--teal);flex-shrink:0}.dayrow.done .daynum{background:var(--teal);color:white}.dayinfo{flex:1;min-width:0}.dayinfo b{display:block;font-size:14px}.dayinfo small{color:var(--muted);font-size:12px}
+input,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit}
+.quizq{margin:15px 0}.quizq label{display:block;padding:9px;border:1px solid var(--line);border-radius:10px;margin:6px 0;font-size:14px}.quizq input{width:auto;margin-right:8px}
+.timer{font-size:38px;font-weight:800;text-align:center;color:var(--teal);padding:12px}
+.notice{font-size:12px;color:var(--muted);background:#f7faf8;padding:12px;border-radius:12px}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:24px 10px}
+@media(min-width:600px){header{padding:32px calc((100% - 720px)/2 + 20px)}.wrap{padding:0 22px}.stats{gap:14px}.stat{padding:16px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topline"><div class="brand">🇧🇭 Bahraini Arabic Coach</div><div class="date" id="todayDate"></div></div>
+  <h1>Speak a little more Arabic every day.</h1>
+  <p>A practical 6-month journey for everyday life and professional conversations in Bahrain.</p>
+</header>
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><strong id="doneCount">0</strong><span>LESSONS DONE</span></div>
+    <div class="stat"><strong id="streakCount">0</strong><span>DAY STREAK</span></div>
+    <div class="stat"><strong id="percentCount">0%</strong><span>COURSE</span></div>
+  </div>
+  <main>
+    <section id="homeView" class="view active">
+      <div class="section-head"><h2>Today's learning</h2><span class="sub">45 minutes</span></div>
+      <div class="card today" id="todayCard"></div>
+      <div class="section-head"><h2>Your daily routine</h2><span class="sub">45 min total</span></div>
+      <div class="grid2">
+        <div class="tile"><b>📚 10 min · Vocabulary</b><small>Learn 8–12 useful words</small></div>
+        <div class="tile"><b>🎧 10 min · Listening</b><small>Listen, repeat and shadow</small></div>
+        <div class="tile"><b>🗣️ 15 min · Speaking</b><small>Role-play out loud</small></div>
+        <div class="tile"><b>✍️ 5 min · Sentences</b><small>Build your own examples</small></div>
+        <div class="tile"><b>🔁 5 min · Review</b><small>Recall without looking</small></div>
+        <div class="tile"><b>🎯 Weekly check</b><small>Review every Saturday</small></div>
+      </div>
+      <div class="section-head"><h2>Course progress</h2><span class="sub">6 months · 26 weeks</span></div>
+      <div class="card"><div class="progress-track"><div class="progress-fill" id="mainProgress"></div></div><div class="sub" id="progressText">Start with Day 1 to begin your journey.</div></div>
+    </section>
+
+    <section id="lessonView" class="view">
+      <div class="section-head"><h2 id="lessonHeading">Daily lesson</h2><span class="pill" id="lessonLevel">BEGINNER</span></div>
+      <div id="lessonContent"></div>
+    </section>
+
+    <section id="planView" class="view">
+      <div class="section-head"><h2>180-day roadmap</h2><span class="sub">Tap a day to open it</span></div>
+      <div class="card" id="roadmap"></div>
+    </section>
+
+    <section id="progressView" class="view">
+      <div class="section-head"><h2>Your progress</h2></div>
+      <div class="card">
+        <div class="eyebrow">Learning record</div>
+        <div class="lesson-title" id="progressBig">0 of 180 lessons</div>
+        <div class="progress-track"><div class="progress-fill" id="progressBar2"></div></div>
+        <p class="sub">Your completion is saved on this device.</p>
+        <div class="actions"><button class="btn secondary" onclick="exportProgress()">Export progress</button><button class="btn ghost" onclick="resetProgress()">Reset progress</button></div>
+      </div>
+      <div class="card"><b>Weekly milestones</b><div id="milestones"></div></div>
+      <div class="notice">Your learning record is stored locally in this browser. If you clear Safari website data or switch devices, export your progress first. This starter app does not sync between devices.</div>
+    </section>
+
+    <section id="settingsView" class="view">
+      <div class="section-head"><h2>Study settings</h2></div>
+      <div class="card">
+        <b>Daily target</b><p class="sub">Your programme is designed around 45 minutes per day.</p>
+        <label class="sub" for="studyTime">Preferred study time</label>
+        <input id="studyTime" type="time" value="08:00">
+        <p class="sub">This records your preferred time inside the app. It does not create phone notifications.</p>
+        <button class="btn full" onclick="saveSettings()">Save preference</button>
+      </div>
+      <div class="card">
+        <b>Useful learning tools</b>
+        <p class="sub">Use ChatGPT Voice Mode to practise speaking and ask for slow Bahraini/Gulf Arabic pronunciation. For spaced repetition, you can also use Anki.</p>
+        <div class="actions"><a class="btn secondary" href="https://chatgpt.com/" target="_blank" rel="noopener">Open ChatGPT</a><a class="btn ghost" href="https://apps.ankiweb.net/" target="_blank" rel="noopener">Anki</a></div>
+      </div>
+      <div class="card">
+        <b>Install on iPhone</b>
+        <ol class="sub"><li>Open this app's hosted web address in Safari.</li><li>Tap the Share icon.</li><li>Choose “Add to Home Screen”.</li><li>Tap Add. Open it from your Home Screen.</li></ol>
+      </div>
+    </section>
+  </main>
+  <footer>Made for practical spoken Arabic in Bahrain · Dialect notes distinguish Bahraini usage from broader Gulf Arabic.</footer>
+</div>
+<nav class="tabs">
+  <button class="tab active" data-view="homeView"><span>⌂</span>Home</button>
+  <button class="tab" data-view="lessonView"><span>📖</span>Lesson</button>
+  <button class="tab" data-view="planView"><span>🗓</span>Plan</button>
+  <button class="tab" data-view="progressView"><span>▥</span>Progress</button>
+  <button class="tab" data-view="settingsView"><span>⚙</span>Settings</button>
+</nav>
+<script>
+const courseStart = new Date('2026-11-05T00:00:00');
+const topics = [
+"Greetings and introductions","Numbers, prices and shopping","Telling the time and appointments","Days, dates and the calendar","Ordering coffee and food","At a restaurant: requests and preferences","Family and describing people","Where do you live? Places in Bahrain","Directions and landmarks","Transport and getting around","Daily routine and common verbs","Likes, dislikes and hobbies","Talking about yesterday","Talking about tomorrow and plans","Review: everyday conversation",
+"Shopping for clothes and essentials","Comparing prices and quantities","At the supermarket","Making plans with friends","Inviting, accepting and declining","Weather and small talk","Visiting someone: hospitality","Bahraini social expressions","Health and simple needs","Asking for help and clarification","Review: social conversations","Describing your home and neighbourhood","Giving simple instructions","Explaining a problem","Making a phone call",
+"Office greetings and introductions","Job roles and departments","Telecom and network vocabulary","Describing your company","Introducing a project","Meeting people and opening a meeting","Asking for updates","Giving status reports","Deadlines and schedules","Making requests politely","Agreeing and disagreeing","Email and phone follow-ups","Review: office conversations","Explaining a network outage","Describing service quality",
+"Customer requirements","Bandwidth, capacity and coverage","Explaining installation and maintenance","Discussing a project timeline","Risks, blockers and dependencies","Asking for clarification in meetings","Offering options and recommendations","Negotiating timelines","Negotiating scope and priorities","Handling a customer complaint","Apologising and proposing solutions","Review: customer discussions","Describing AI and cloud services","Explaining technical benefits","Presenting a solution",
+"Giving opinions and reasons","Comparing two solutions","Explaining advantages and disadvantages","Talking about costs and budgets","Discussing commercial terms","Following up on commitments","Managing difficult conversations","Handling misunderstandings","Giving feedback politely","Describing a process step by step","Review: business communication","Storytelling: a work experience","Storytelling: a personal experience","Talking about news and current events",
+"Longer conversations: social situations","Longer conversations: professional situations","Leading a short meeting","Opening and closing a presentation","Presenting project progress","Answering unexpected questions","Explaining a technical issue simply","Discussing a change request","Negotiation role-play","Customer relationship building","Cross-cultural communication","Review: fluency and confidence","30-minute conversation preparation","Final speaking assessment","Six-month review and next steps"
+];
+// Expand 90 core topics into a 180-day course with paired practice/revision sessions.
+const dayTopics = [];
+topics.forEach((t,i)=>{dayTopics.push(t); dayTopics.push(i%5===4 ? `Practice and review: ${t.toLowerCase()}` : `Speaking drill: ${t.toLowerCase()}`);});
+const stageNames = ["Survival Arabic","Everyday life","Social confidence","Workplace Arabic","Professional communication","Fluency and consolidation"];
+const stageStarts = [1,31,61,91,121,151];
+const lessons = {
+1:{title:"Greetings and introductions",goal:"Greet people, introduce yourself and ask someone's name.",vocab:[["السلام عليكم","as-salaamu ʿalaykum","Peace be upon you / hello"],["وعليكم السلام","wa ʿalaykum as-salaam","And peace be upon you"],["هلا","hala","Hi (common Gulf)"],["هلا والله","hala wallah","A warm hello (Gulf)"],["صباح الخير","sabaah il-khair","Good morning"],["مساء الخير","masa il-khair","Good evening"],["شلونك؟","shloonak?","How are you? (to a man)"],["شلونج؟","shloonich?","How are you? (to a woman)"],["زين","zain","Good / fine"],["الحمد لله","al-hamdu lillah","Thank God"],["شنو اسمك؟","shinu ismak?","What is your name? (to a man)"],["اسمي...","ismi...","My name is..."],["من وين؟","min wain?","Where are you from?"],["أنا من...","ana min...","I am from..."],["تشرفنا","tsharrafna","Pleased to meet you"]],dialogue:[["Person A","السلام عليكم","as-salaamu ʿalaykum","Hello"],["Person B","وعليكم السلام، هلا","wa ʿalaykum as-salaam, hala","Hello, hi"],["A","شلونك؟","shloonak?","How are you?"],["B","زين، الحمد لله. وإنت؟","zain, al-hamdu lillah. w inta?","Fine, thank God. And you?"],["A","أنا من الصين وساكن في البحرين","ana min as-sheen wa saakin fil-bah rain","I'm from China and live in Bahrain"]],quiz:[["What does هلا mean?",["Goodbye","Hi","Thank you"],1],["How do you say 'My name is…'?",["اسمي...","من وين؟","زين"],0],["شلونك؟ is generally addressed to…",["A woman","A man","A group"],1]]},
+2:{title:"Numbers, prices and simple questions",goal:"Count from one to ten, ask prices and buy something.",vocab:[["واحد","waa-hid","One"],["اثنين","ith-nēn","Two"],["ثلاثة","tha-laa-tha","Three"],["أربعة","ar-ba-ʿa","Four"],["خمسة","kham-sa","Five"],["ستة","sit-ta","Six"],["سبعة","sab-ʿa","Seven"],["ثمانية","tha-maa-ni-ya","Eight"],["تسعة","tis-ʿa","Nine"],["عشرة","ʿa-sha-ra","Ten"],["كم؟","kam?","How many / how much?"],["بكم؟","bi-kam?","How much does it cost?"],["غالي","ghaali","Expensive"],["رخيص","rkhees","Cheap"],["أبي هذا","abi haadha","I want this"]],dialogue:[["Customer","السلام عليكم","as-salaamu ʿalaykum","Hello"],["Shopkeeper","وعليكم السلام، تفضل","wa ʿalaykum as-salaam, tafaḍḍal","Hello, go ahead"],["Customer","هذا بكم؟","haadha bi-kam?","How much is this?"],["Shopkeeper","خمسة دنانير","khamsa danaaneer","Five dinars"],["Customer","غالي وايد! ممكن تخفّض السعر؟","ghaali waa-yid! mumkin tkhaffiḍ as-siʿr?","Very expensive! Can you lower the price?"],["Shopkeeper","أربعة دنانير","arbaʿa danaaneer","Four dinars"]],quiz:[["How do you say 5?",["ثلاثة","خمسة","سبعة"],1],["What does بكم؟ mean?",["Where?","How much?","When?"],1],["What does غالي mean?",["Cheap","Expensive","Welcome"],1]]}
+};
+function stageFor(day){return Math.min(5,Math.floor((day-1)/30))}
+function titleFor(day){return lessons[day]?.title || dayTopics[day-1] || "Conversation practice";}
+function goalFor(day){return lessons[day]?.goal || `Build confidence with ${titleFor(day).toLowerCase()} using vocabulary, listening and a short role-play.`}
+let state = JSON.parse(localStorage.getItem('baa_state')||'{"completed":[],"lastDone":null,"studyTime":"08:00"}');
+function save(){localStorage.setItem('baa_state',JSON.stringify(state));renderStats();}
+function currentDay(){let elapsed=Math.floor((new Date().setHours(0,0,0,0)-courseStart.getTime())/86400000)+1;return Math.max(1,Math.min(180,elapsed));}
+function renderStats(){let n=state.completed.length;document.getElementById('doneCount').textContent=n;document.getElementById('percentCount').textContent=Math.round(n/180*100)+'%';document.getElementById('mainProgress').style.width=(n/180*100)+'%';document.getElementById('progressBar2').style.width=(n/180*100)+'%';document.getElementById('progressBig').textContent=n+' of 180 lessons';document.getElementById('progressText').textContent=n?`${n} lessons completed. Keep building your speaking habit.`:'Start with Day 1 to begin your journey.';let streak=0;let d=new Date();for(let i=0;i<180;i++){let key=d.toISOString().slice(0,10);if(state.lastDates?.includes(key)){streak++;d.setDate(d.getDate()-1)}else break;}document.getElementById('streakCount').textContent=streak;document.getElementById('milestones').innerHTML=stageNames.map((s,i)=>`<div class="dayrow"><div class="daynum">${i+1}</div><div class="dayinfo"><b>${s}</b><small>Days ${stageStarts[i]}–${stageStarts[i]+29}</small></div><span class="pill">${state.completed.filter(x=>x>=stageStarts[i]&&x<stageStarts[i]+30).length}/30</span></div>`).join('');}
+function renderHome(){let d=currentDay();let next=state.completed.includes(d)?Math.min(180,d+1):d;document.getElementById('todayCard').innerHTML=`<div class="eyebrow">DAY ${next} · ${stageNames[stageFor(next)]}</div><div class="lesson-title">${titleFor(next)}</div><div class="lesson-meta">${goalFor(next)}</div><div class="actions"><button class="btn" onclick="openLesson(${next})">Open today's lesson →</button><button class="btn secondary" onclick="openLesson(${next})">Study now</button></div>`;}
+function vocabHTML(arr){return arr.map(v=>`<div class="vocab"><div><div class="arabic">${v[0]}</div><div class="pron">${v[1]}</div></div><div class="meaning">${v[2]}</div></div>`).join('')}
+function openLesson(day){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('lessonView').classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view==='lessonView'));let data=lessons[day];let vocab=data?.vocab || [["اليوم","al-yoom","Today"],["باجر","baacher","Tomorrow (common Gulf)"],["ممكن؟","mumkin?","Can I? / Is it possible?"],["أبي","abi","I want"],["ما فهمت","ma fihimt","I didn't understand"],["مرة ثانية","marra thaaniya","One more time"],["شكراً","shukran","Thank you"],["لو سمحت","law samaht","Please / excuse me"]];let dlg=data?.dialogue || [["Speaker A","السلام عليكم","as-salaamu ʿalaykum","Hello"],["Speaker B","هلا، شلونك؟","hala, shloonak?","Hi, how are you?"],["Speaker A","زين، الحمد لله. عندي سؤال","zain, al-hamdu lillah. ʿindi su'aal","Fine, thank God. I have a question"],["Speaker B","تفضل","tafaḍḍal","Go ahead"]];let quiz=data?.quiz || [["Which expression means 'I want'?",["أبي","غالي","وين"],0],["Which phrase means 'I didn't understand'?",["شكراً","ما فهمت","باجر"],1],["Which word means 'tomorrow' in Gulf Arabic?",["اليوم","باجر","الحين"],1]];
+document.getElementById('lessonHeading').textContent=`Day ${day} · ${titleFor(day)}`;document.getElementById('lessonContent').innerHTML=`
+<div class="card"><div class="eyebrow">TODAY'S GOAL</div><p>${goalFor(day)}</p><span class="pill">${stageNames[stageFor(day)]}</span></div>
+<div class="card"><div class="eyebrow">1 · VOCABULARY — 10 MIN</div>${vocabHTML(vocab)}<p class="notice">Dialect note: Bahraini Arabic shares many expressions with neighbouring Gulf dialects. Usage and pronunciation can vary by speaker and context.</p></div>
+<div class="card"><div class="eyebrow">2 · LISTEN & REPEAT — 10 MIN</div><p>Read each line aloud three times: slowly, naturally, then without looking. If you use ChatGPT Voice Mode, ask: “Practise this dialogue with me in slow Bahraini Arabic. Correct my pronunciation gently.”</p><button class="btn secondary" onclick="speakText('السلام عليكم. هلا. شلونك؟ زين، الحمد لله. أبي هذا. شكراً.')">🔊 Hear sample phrases</button></div>
+<div class="card"><div class="eyebrow">3 · SPEAKING ROLE-PLAY — 15 MIN</div>${dlg.map(x=>`<div class="dialogue-line"><div class="speaker">${x[0]}</div><div class="arline">${x[1]}</div><div class="trans">${x[2]} · ${x[3]}</div></div>`).join('')}<p><b>Your turn:</b> Repeat the dialogue, then change one detail and say it again. Speak aloud for at least two minutes.</p></div>
+<div class="card"><div class="eyebrow">4 · SENTENCE BUILDING — 5 MIN</div><p>Make three new sentences using today's vocabulary. Say each sentence aloud and replace one word each time.</p><p class="notice">Professional challenge: create one sentence related to your work, such as a customer, project, meeting or network.</p></div>
+<div class="card"><div class="eyebrow">5 · QUICK QUIZ — 5 MIN</div>${quiz.map((q,i)=>`<div class="quizq"><b>${i+1}. ${q[0]}</b>${q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}">${o}</label>`).join('')}<span id="qres${i}"></span></div>`).join('')}<button class="btn secondary full" onclick="checkQuiz(${day})">Check answers</button><div id="quizScore"></div></div>
+<div class="card"><div class="eyebrow">COMPLETE YOUR DAY</div><p>Finish by recording or saying a 60-second mini-conversation without reading. Tick this lesson off when you have completed the speaking practice.</p><button class="btn full" onclick="completeDay(${day})">${state.completed.includes(day)?'✓ Lesson completed':'Mark lesson complete'}</button></div>
+<div class="card"><b>Answers</b><details><summary>Show quiz answers</summary>${quiz.map((q,i)=>`<p>${i+1}. ${q[1][q[2]]}</p>`).join('')}</details></div>`;}
+function checkQuiz(day){let data=lessons[day];let quiz=data?.quiz || [["Which expression means 'I want'?",["أبي","غالي","وين"],0],["Which phrase means 'I didn't understand'?",["شكراً","ما فهمت","باجر"],1],["Which word means 'tomorrow' in Gulf Arabic?",["اليوم","باجر","الحين"],1]];let score=0;quiz.forEach((q,i)=>{let el=document.querySelector(`input[name="q${i}"]:checked`);let ok=el&&Number(el.value)===q[2];if(ok)score++;document.getElementById('qres'+i).textContent=ok?' ✓ Correct':` · Answer: ${q[1][q[2]]}`;});document.getElementById('quizScore').innerHTML=`<p><b>Score: ${score}/${quiz.length}</b></p>`;}
+function completeDay(day){if(!state.completed.includes(day))state.completed.push(day);let today=new Date().toISOString().slice(0,10);state.lastDates=state.lastDates||[];if(!state.lastDates.includes(today))state.lastDates.push(today);state.lastDone=day;save();renderHome();openLesson(day);document.querySelector('#lessonContent .card:last-of-type .btn').textContent='✓ Lesson completed';}
+function renderRoadmap(){let html='';for(let d=1;d<=180;d++){let done=state.completed.includes(d);html+=`<div class="dayrow ${done?'done':''}" onclick="openLesson(${d})"><div class="daynum">${done?'✓':d}</div><div class="dayinfo"><b>${titleFor(d)}</b><small>Day ${d} · ${stageNames[stageFor(d)]}</small></div><span class="sub">${done?'Done':'Open →'}</span></div>`;}document.getElementById('roadmap').innerHTML=html;}
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===id));if(id==='planView')renderRoadmap();}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>showView(t.dataset.view)));
+function saveSettings(){state.studyTime=document.getElementById('studyTime').value;save();alert('Preference saved on this device.');}
+function exportProgress(){let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='bahraini-arabic-progress.json';a.click();URL.revokeObjectURL(a.href);}
+function resetProgress(){if(confirm('Reset all saved lesson progress on this device?')){state={completed:[],lastDone:null,studyTime:'08:00'};save();renderHome();renderRoadmap();}}
+function speakText(t){if('speechSynthesis'in window){let u=new SpeechSynthesisUtterance(t);u.lang='ar';u.rate=.78;speechSynthesis.speak(u);}else alert('Audio playback is not available in this browser. Try ChatGPT Voice Mode.');}
+document.getElementById('todayDate').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',day:'numeric',month:'short'});
+document.getElementById('studyTime').value=state.studyTime||'08:00';
+renderStats();renderHome();renderRoadmap();openLesson(1);
+if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body>
+</html>
